@@ -46,5 +46,10 @@
     <artifactId>cucumber-junit</artifactId>
     <version>7.12.1</version>
     </dependency>
+    <dependency>
+    <groupId>net.masterthought</groupId>
+    <artifactId>maven-cucumber-reporting</artifactId>
+    <version>5.7.5</version>
+    </dependency>
   </dependencies>
 </project>

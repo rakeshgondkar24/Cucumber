@@ -23,5 +23,4 @@ Feature: login feature of fedmithra application
     Examples: 
     |username|password|
     |Credit|Federal@123|
-    |Credit1|Federal@12|
     

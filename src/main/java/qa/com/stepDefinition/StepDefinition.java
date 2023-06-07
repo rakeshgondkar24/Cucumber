@@ -1,5 +1,6 @@
 package qa.com.stepDefinition;
 
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -14,13 +15,14 @@ import io.cucumber.java.en.When;
 
 public class StepDefinition {
 	WebDriver driver = null;
+	public static Properties prop;
 	
 	@SuppressWarnings("deprecation")
 	@Given("^the users launch the browser and loads Fedmithra web app$")
 	public void goToFedApp() {
 		System.setProperty("webdriver.edge.driver","E:\\Rakesh\\Automation\\Federal\\Driver\\msedgedriver.exe");
 		driver = new EdgeDriver();
-		driver.get("https://10.10.1.16/fedmithraportal");
+		driver.get(prop.getProperty("url"));
 		driver.manage().timeouts().implicitlyWait(2000, TimeUnit.MILLISECONDS);
 		driver.manage().window().maximize();
 		driver.findElement(By.xpath("//*[@id='details-button']")).click();
@@ -67,14 +69,13 @@ public class StepDefinition {
 	public void Ivalidate() {
 		driver.manage().timeouts().implicitlyWait(2000, TimeUnit.MILLISECONDS);
 		String ExpectedMessage="User not exist";
-		/*String ActualMessage = driver.findElement(By.xpath("//*[text()='User not exist']")).toString();
+		String ActualMessage = driver.findElement(By.xpath("//*[text()='User not exist']")).getText();
 		if(ActualMessage.equals(ExpectedMessage)) {
 			System.out.println("TestPass");
 		}else {
 			System.out.println("TestFail");
 			System.out.println("ActualMessage is: "+ ActualMessage);
-		}*/
-		System.out.println("TestPass");
+		}
 	}
 	
 }
