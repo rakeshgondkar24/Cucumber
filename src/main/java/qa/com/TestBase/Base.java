@@ -26,6 +26,6 @@ public class Base {
 	}
 	
 	public void Teardown() {
-		
+		driver.close();
 	}
 }
