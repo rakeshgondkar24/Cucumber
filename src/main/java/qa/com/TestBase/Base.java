@@ -25,4 +25,7 @@ public class Base {
 		driver.findElement(By.xpath("//*[@id='proceed-link']")).click();
 	}
 	
+	public void Teardown() {
+		
+	}
 }

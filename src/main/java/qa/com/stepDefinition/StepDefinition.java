@@ -8,28 +8,28 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import qa.com.TestBase.*;
 
-public class StepDefinition {
+public class StepDefinition extends Base{
 	WebDriver driver = null;
 	public static Properties prop;
 	
-	@SuppressWarnings("deprecation")
-	@Given("^the users launch the browser and loads Fedmithra web app$")
-	public void goToFedApp() {
-		System.setProperty("webdriver.edge.driver","E:\\Rakesh\\Automation\\Federal\\Driver\\msedgedriver.exe");
-		driver = new EdgeDriver();
-		driver.get(prop.getProperty("url"));
-		driver.manage().timeouts().implicitlyWait(2000, TimeUnit.MILLISECONDS);
-		driver.manage().window().maximize();
-		driver.findElement(By.xpath("//*[@id='details-button']")).click();
-		driver.findElement(By.xpath("//*[@id='proceed-link']")).click();
-		String title = driver.getTitle();
-		System.out.println("loginpage title: " + title);
+	public StepDefinition() throws Exception{
+		super();
 	}
+	
+	@Before
+	@Given("^the users launch the browser and loads Fedmithra web app$")
+	public void setUp() {
+		Intialization();
+	}
+	
 	
 	@When("user enters {string} and {string}")
 	public void enterCredential(String username,String password) {
@@ -76,6 +76,11 @@ public class StepDefinition {
 			System.out.println("TestFail");
 			System.out.println("ActualMessage is: "+ ActualMessage);
 		}
+	}
+	
+	@After
+	public void cleanUp() {
+		
 	}
 	
 }
