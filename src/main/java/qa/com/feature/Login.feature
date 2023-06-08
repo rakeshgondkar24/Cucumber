@@ -3,7 +3,6 @@ Feature: login feature of fedmithra application
   Background: 
       Given the users launch the browser and loads Fedmithra web app
     
-    
   @validdata
   Scenario Outline: Login to Application using Valid Credential
     When user enters "<username>" and "<password>"
@@ -12,9 +11,9 @@ Feature: login feature of fedmithra application
     
     Examples:
     |username|password|
-    |Credit1|Federal@123|
+    |BVO|Federal@123|
     
-  @Invalid
+  @Invalid 
   Scenario Outline: Error message for invalid username
    When user enters "<username>" and "<password>"
    And Clicks on login button

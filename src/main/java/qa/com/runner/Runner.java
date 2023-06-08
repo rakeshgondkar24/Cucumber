@@ -9,7 +9,6 @@ import io.cucumber.junit.*;
 @RunWith(Cucumber.class)
 @CucumberOptions(features="E:\\Rakesh\\Automation\\Federal\\FED00A\\cucumberfed\\src\\main\\java\\qa\\com\\feature", 
 glue="qa/com/stepDefinition", 
-tags="@validdata",
 plugin= {"pretty","html:target/cucumber-reports"})
 
 public class Runner {

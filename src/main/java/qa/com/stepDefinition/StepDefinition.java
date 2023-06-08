@@ -92,9 +92,4 @@ public class StepDefinition extends Base{
 		}
 	}
 	
-	@After
-	public void cleanUp() {
-		Teardown();
-	}
-	
 }
