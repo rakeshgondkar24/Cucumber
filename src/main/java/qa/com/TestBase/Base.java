@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 
 public class Base {
@@ -34,6 +35,18 @@ public class Base {
 	}
 	
 	public void Teardown() {
-		driver.close();
+		WebElement ele= driver.findElement(By.xpath("//button[@class='mat-focus-indicator mat-menu-trigger mat-tooltip-trigger icon-button header-profile-button mat-button mat-button-base mat-elevation-z1']"));
+		if(ele.isDisplayed()) {
+			ele.click();
+			WebElement logout = driver.findElement(By.xpath("//button[@class='mat-focus-indicator mat-tooltip-trigger mat-elevation-z1 mat-menu-item']"));
+			if(logout.isDisplayed()) {
+				logout.click();
+				driver.close();
+			}else {
+				System.out.println("logout option is not available to click");
+			}
+		}else {
+			System.out.println("logout element option is not available to click");
+		}
 	}
 }

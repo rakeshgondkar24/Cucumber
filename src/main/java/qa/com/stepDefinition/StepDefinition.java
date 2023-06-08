@@ -79,9 +79,9 @@ public class StepDefinition extends Base{
 		System.out.println("TestPass");
 	}
 	
-	@Then("^Error message should display$")
+	@Then("^error message User not exist is displaying$")
 	public void Ivalidate() {
-		driver.manage().timeouts().implicitlyWait(2000, TimeUnit.MILLISECONDS);
+		//driver.manage().timeouts().implicitlyWait(2000, TimeUnit.MILLISECONDS);
 		String ExpectedMessage="User not exist";
 		String ActualMessage = driver.findElement(By.xpath("//*[text()='User not exist']")).getText();
 		if(ActualMessage.equals(ExpectedMessage)) {
@@ -92,9 +92,9 @@ public class StepDefinition extends Base{
 		}
 	}
 	
-	/*@After
+	@After
 	public void cleanUp() {
 		Teardown();
-	}*/
+	}
 	
 }
