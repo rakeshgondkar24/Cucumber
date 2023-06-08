@@ -6,6 +6,8 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.edge.EdgeDriver;
+
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
@@ -16,18 +18,24 @@ import qa.com.TestBase.*;
 import qa.com.pages.*;
 
 public class StepDefinition extends Base{
-	//WebDriver driver = null;
-	public static Properties prop;
 	public LoginPage login;
+	public static Properties prop;
 	
 	public StepDefinition() throws Exception{
 		super();
 	}
 	
-	@Before
+	
+	
 	@Given("^the users launch the browser and loads Fedmithra web app$")
-	public void setUp() {
+	public void setUp() throws Exception {
 		Intialization();
+		/*System.setProperty("webdriver.edge.driver", "E:\\Rakesh\\Automation\\Federal\\Driver\\msedgedriver.exe");
+		driver = new EdgeDriver();
+		driver.get("https://10.10.1.16/fedmithraportal");
+		driver.findElement(By.xpath("//*[@id='details-button']")).click();
+		driver.manage().timeouts().implicitlyWait(2000, TimeUnit.MILLISECONDS);
+		driver.findElement(By.xpath("//*[text()='Continue to 10.10.1.16 (unsafe)']")).click();*/
 	}
 	
 	
@@ -39,17 +47,17 @@ public class StepDefinition extends Base{
 		WebElement pass = driver.findElement(By.xpath("//input[@id='password']"));
 		System.out.println("Username:"+pass.isEnabled());
 		if(uname.isEnabled()) {
-			uname.sendKeys(username);
+			uname.sendKeys(Username);
 			if(pass.isEnabled()) {
-				pass.sendKeys(password);
+				pass.sendKeys(Password);
 			}else {
 				System.out.println("pass field is not enabled");
 			}
 		}else {
 			System.out.println("uname field is not enabled");
 		}*/
-		login = new LoginPage();
 		try {
+			login = new LoginPage();
 			login.Login(Username, Password);
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -65,7 +73,7 @@ public class StepDefinition extends Base{
 	}
 	
 	@Then("^home page is getting redirected$")
-	public void Vvalidate() {
+	public void validate() {
 		String name = driver.getTitle();
 		System.out.println("Title: "+name);
 		System.out.println("TestPass");
@@ -84,9 +92,9 @@ public class StepDefinition extends Base{
 		}
 	}
 	
-	@After
+	/*@After
 	public void cleanUp() {
 		Teardown();
-	}
+	}*/
 	
 }

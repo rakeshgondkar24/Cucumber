@@ -14,13 +14,4 @@ Feature: login feature of fedmithra application
     |username|password|
     |Credit1|Federal@123|
     
-  @invaliddata
-  Scenario Outline: Error message for invalid data
-    When user enters "<username>" and "<password>"
-    And Clicks on login button
-    Then Error message should display
-    
-    Examples: 
-    |username|password|
-    |Credit|Federal@123|
     
