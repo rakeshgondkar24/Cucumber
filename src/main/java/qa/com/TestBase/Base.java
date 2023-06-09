@@ -16,7 +16,7 @@ public class Base {
 	
 	public Base() throws Exception{
 		prop = new Properties();
-		String propfile="E:\\Rakesh\\Automation\\Federal\\FEDMITHRA\\Cucumber\\src\\main\\java\\qa\\com\\config\\config.Properties";
+		String propfile="C:\\Users\\rakesh.g\\OneDrive - Atyati Technologies Pvt Ltd\\Documents\\PROJECTS\\fedral\\self\\FEDAUTO\\FEDCRED\\Cucumber\\src\\main\\java\\qa\\com\\config\\config.Properties";
 		FileInputStream file = new FileInputStream(propfile);
 		prop.load(file);
 	}

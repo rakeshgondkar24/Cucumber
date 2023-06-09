@@ -22,3 +22,16 @@ Feature: login feature of fedmithra application
    Examples:
    |username|password|
    |rakesh|Federal@123|
+   
+  @loggedinuser
+  Scenario Outline: Logged in user error message
+   When user enters "<username>" and "<password>"
+   And Clicks on login button
+   Then error message User already logged in is displaying
+   
+   Examples:
+   |username|password|
+   |Credit1|Federal@123|
+  
+  
+  

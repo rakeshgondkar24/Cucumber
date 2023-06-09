@@ -92,4 +92,16 @@ public class StepDefinition extends Base{
 		}
 	}
 	
+	@Then("^error message User already logged in is displaying$")
+	public void loggedInuser() {
+		String Expected_message = "User Already LoggedIn";
+		String Actual_message = driver.findElement(By.xpath("//*[text()='User Already LoggedIn']")).getText();
+		if(Actual_message.equals(Expected_message)) {
+			System.out.println("TestPass");
+		}else {
+			System.out.println("TestFail");
+			System.out.println("ActualMessage is: "+ Actual_message);
+		}
+	}
+	
 }
