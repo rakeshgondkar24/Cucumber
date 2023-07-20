@@ -11,7 +11,7 @@ Feature: login feature of fedmithra application
     
     Examples:
     |username|password|
-    |BVO|Federal@123|
+    |BVO|*****|
     
   @Invalid 
   Scenario Outline: Error message for invalid username
@@ -21,7 +21,7 @@ Feature: login feature of fedmithra application
    
    Examples:
    |username|password|
-   |rakesh|Federal@123|
+   |rakesh|*****|
    
   @loggedinuser
   Scenario Outline: Logged in user error message
@@ -31,7 +31,7 @@ Feature: login feature of fedmithra application
    
    Examples:
    |username|password|
-   |Credit1|Federal@123|
+   |Credit1|*****|
   
   
   
